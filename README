@@ -2,11 +2,11 @@ This is a very simple memory leak detector for C.
 
 To use:
 
-1. Simply include mem.h from a file where memory is allocation
+1. Simply include mem.h from C files where memory 
 is managed  using malloc, calloc, realloc and free.
 2. Link libmemd.a to the executable.
 
-Run the executable. If there is any unfreed memory, a .mem file will be 
+Run the executable. For each unfreed memory buffer, a .mem file will be 
 created. For example if memory address 0x7fb1d2403960 leaks, then a file 
 called 0x7fb1d2403960.mem will be left behind after the application exits.
 
