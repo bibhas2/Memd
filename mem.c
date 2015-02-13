@@ -51,7 +51,9 @@ void *debug_realloc(void *ptr, size_t size, const char* file, int line) {
 	char buff[256];
 	//Delete the old pointer record
 	sprintf(buff, "%p.mem", ptr);
-	unlink(buff);
+	if (unlink(buff) < 0) {
+		printf("Double free: %p File: %s Line: %d\n", ptr, file, line);
+	}
 
 	//Create the new pointer record
 	sprintf(buff, "%p.mem", p);
@@ -64,11 +66,13 @@ void *debug_realloc(void *ptr, size_t size, const char* file, int line) {
 	return p;
 }
 
-void debug_free(void *p) {
+void debug_free(void *p, const char* file, int line) {
 	char buff[256];
 
 	sprintf(buff, "%p.mem", p);
-	unlink(buff);
+	if (unlink(buff) < 0) {
+		printf("Double free: %p File: %s Line: %d\n", p, file, line);
+	}
 
 	free(p);
 }

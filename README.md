@@ -35,3 +35,10 @@ File: test.c
 Line: 7
 Size: 10 bytes
 ```
+
+##Double Free Detection
+Both ``free`` and ``realloc`` function will be checked for double free scenario. If a double free is detected you will see message like this in the console:
+
+```text
+Double free: 0x7fafb35009e0 File: Dictionary.c Line: 45
+```
