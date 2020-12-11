@@ -1,10 +1,10 @@
-##Introduction
+## Introduction
 This is a very simple memory leak detector for C. It uses the file system
 as a database and stores information about any memory that
 is allocated in files. As memory is freed these files are deleted.
 Any file left behind after the program exists indicates memory leak.
 
-##How to Use
+## How to Use
 
 1. Simply include ``mem.h`` from C files where memory 
 is managed  using ``malloc``, ``calloc``, ``realloc`` and ``free``.
@@ -36,7 +36,7 @@ Line: 7
 Size: 10 bytes
 ```
 
-##Double Free Detection
+## Double Free Detection
 Both ``free`` and ``realloc`` function will be checked for double free scenario. If a double free is detected you will see message like this in the console:
 
 ```text
